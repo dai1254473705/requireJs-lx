@@ -6,20 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script data-main="./scripts/app.js" src="scripts/lib/require.js"></script>
+   
 </head>
-
 <body>
     <p>test</p>
 </body>
-<script>
-    window.onload = function () {
-        require(['main/main'], function (main) {
-            console.log("加載完成");
-        })
-    }
-
-
-</script>
-
+ <!-- 有人可能会想到，加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样： -->
+    <!-- async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。 -->
+    <script data-main="scripts/app.js"    src="scripts/lib/require.js"></script>
+    <script  src="scripts/app/main/index.js"></script>
 </html>
